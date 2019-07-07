@@ -4,14 +4,13 @@ import style from './App.module.css';
 function App() {
   const [personsList, setPersonsList] = useState([]);
   const [inputValue, setInputValue] = useState('');
-
-  let isFetching = false;
+  const [isFetching, setIsFetching] = useState(false);
 
   const fetchUserData = () => {
     const personCount = Math.floor(Math.random() * 10) + 1;
     const url = `https://randomuser.me/api/?results=${personCount}`;
 
-    isFetching = true;
+    setIsFetching(true);
 
     fetch(url)
       .then((response) => {
@@ -22,10 +21,8 @@ function App() {
       .then((data) => {
         const { results } = data
 
-        console.log(results);
-
         setPersonsList(results);
-        isFetching = false;
+        setIsFetching(false);
       });
   }
 
@@ -43,6 +40,8 @@ function App() {
 
   return (
     <div className={ style.App }>
+      <h1 className={ style.title }>Search</h1>
+
       <form
         className={ style.form }
         onSubmit={ handleSubmit }
@@ -50,7 +49,6 @@ function App() {
         method="post"
         autoComplete="off"
       >
-        <h1 className={ style.title }>Search</h1>
         <fieldset className={ style.formRow }>
           <input
             className={ style.field }
@@ -63,7 +61,7 @@ function App() {
           />
           <button className={ style.button } type="submit">Search</button>
         </fieldset>
-        { isFetching && <span>Loading!!!</span> }
+        { isFetching === true && <span>Loading!!!</span> }
         { (personsList.length > 0) && (
           <ul className={ style.suggestions }>
             { personsList.map((person, index) => (
