@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.form {
+
+}
+
+.formRow {
+  padding: 1rem;
+  margin: 0;
+  border: 0;
+}
+
+.suggestions {
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  list-style: none;
+}
