@@ -18,7 +18,24 @@
 
 .suggestions {
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
   border: 1px solid black;
   list-style: none;
+  text-align: left;
+}
+
+.suggestion {
+  display: flex;
+}
+
+.suggestionEntry {
+  color: red;
+}
+
+.suggestionEntry:after {
+  content: '-';
+}
+
+.suggestionEntry:last-child:after {
+  content: none;
 }
