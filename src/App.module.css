@@ -29,7 +29,7 @@
 }
 
 .suggestionEntry {
-  color: red;
+  color: gray;
 }
 
 .suggestionEntry:after {

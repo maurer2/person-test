@@ -7,8 +7,7 @@ function App() {
   const [isFetching, setIsFetching] = useState(false);
 
   const fetchUserData = () => {
-    const personCount = Math.floor(Math.random() * 10) + 1;
-    const url = `https://randomuser.me/api/?results=${personCount}`;
+    const url = `https://randomuser.me/api/?results=${inputValue}`;
 
     setIsFetching(true);
 
@@ -40,6 +39,7 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+
     fetchUserData();
   };
 
@@ -63,6 +63,7 @@ function App() {
             autoComplete="false"
             placeholder="Please enter number of entries to show"
             disabled={isFetching ? 'disabled' : false}
+            pattern="[0-9]*"
           />
           <button className={style.button} type="submit">Search</button>
         </fieldset>
@@ -70,7 +71,7 @@ function App() {
         { (personsList.length > 0) && (
           <ul className={style.suggestions}>
             { personsList.map(person => (
-              <li className={style.suggestion} key={person.id}>
+              <li className={style.suggestion} key={person.login.uuid}>
                 <span className={style.suggestionEntry}>{ person.name.first }</span>
                 <span className={style.suggestionEntry}>{ person.name.last }</span>
                 <span className={style.suggestionEntry}>{ person.email }</span>
