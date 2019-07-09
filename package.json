@@ -10,7 +10,7 @@
     "@babel/plugin-transform-react-jsx-source": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "8.0.5",
     "babel-preset-jest": "^24.6.0",
     "babel-preset-react-app": "^9.0.0",
     "eslint": "^5.16.0",
