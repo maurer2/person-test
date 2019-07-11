@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import style from './App.module.css';
 
+const SuggestionEntry = ({ person }) => (
+  <dl className={style.suggestionEntry}>
+    <dt className={style.suggestionKey}>First name:</dt>
+    <dd className={style.suggestionValue}>{ person.name.first }</dd>
+    <dt className={style.suggestionKey}>Last name:</dt>
+    <dd className={style.suggestionValue}>{ person.name.last }</dd>
+  </dl>
+);
+
 function App() {
   const [personsList, setPersonsList] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -72,9 +81,7 @@ function App() {
           <ul className={style.suggestions}>
             { personsList.map(person => (
               <li className={style.suggestion} key={person.login.uuid}>
-                <span className={style.suggestionEntry}>{ person.name.first }</span>
-                <span className={style.suggestionEntry}>{ person.name.last }</span>
-                <span className={style.suggestionEntry}>{ person.email }</span>
+                <SuggestionEntry person={person} />
               </li>
             ))}
           </ul>

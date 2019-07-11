@@ -29,13 +29,20 @@
 }
 
 .suggestionEntry {
+  display: flex;
+  margin-top: 0;
+  flex-wrap: wrap;
+  width: 100%;
   color: gray;
 }
 
-.suggestionEntry:after {
-  content: '-';
+.suggestionKey {
+  flex-basis: 30%;
+  color: gray;
 }
 
-.suggestionEntry:last-child:after {
-  content: none;
+.suggestionValue {
+  margin: 0;
+  flex-basis: 70%;
+  color: gray;
 }
